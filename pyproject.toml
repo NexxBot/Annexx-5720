@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "annexx"
+version = "0.1.0"
+description = "Annexx: a multi-agent data governance system by NEXX."
+authors = ["Perye LI <lipengyu.cn@hotmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+logi-langchain-web = {git = "https://github.com/NexxBot/logi-langchain-web.git"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
