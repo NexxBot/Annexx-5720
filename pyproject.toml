@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = ">=3.11,<3.12"
 logi-langchain-web = {git = "https://github.com/NexxBot/logi-langchain-web.git"}
+langgraph = "^0.2.0"
 
 
 [build-system]
