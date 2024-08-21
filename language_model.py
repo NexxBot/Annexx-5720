@@ -1,24 +1,29 @@
-from logi_langchain.chat_models import ChatOpenAI
+from langchain_openai import AzureChatOpenAI
 
 from utils.config_loader import load_config
 
-openai_config = load_config()['llm']['openai']
+config = load_config()
+openai_config = config['llm']['azure-openai']
 
-gpt_4_turbo = ChatOpenAI(
+gpt_default = AzureChatOpenAI(
     model_name=openai_config['model-name'],
-    openai_api_key=openai_config['api-key'],
+    api_version=openai_config['api-version'],
+    api_key=openai_config['api-key'],
     temperature=0,
+    azure_endpoint=openai_config['endpoint'],
 )
 
-gpt_35_turbo = ChatOpenAI(
-    model_name='gpt-3.5-turbo',
-    openai_api_key=openai_config['api-key'],
+gpt_35_turbo = AzureChatOpenAI(
+    model_name='gpt-35-turbo-16k',
+    api_version=openai_config['api-version'],
+    api_key=openai_config['api-key'],
     temperature=0,
+    azure_endpoint=openai_config['endpoint'],
 )
 
 
-def load_gpt_4_turbo():
-    return gpt_4_turbo
+def load_gpt_default():
+    return gpt_default
 
 
 def load_gpt_35_turbo():

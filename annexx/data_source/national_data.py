@@ -8,7 +8,7 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 
-from logi_langchain_web.utilities.national_data import NationalData, NationalDataTable
+from logi_langchain_web.utilities.national_data import NationalStatisticsDataSource, NationalDataTable
 
 
 def gdp_index_callback(wd: WebDriver):
@@ -17,7 +17,7 @@ def gdp_index_callback(wd: WebDriver):
                     '#mySelect_zb > div.dtHtml > div.dtBody > div.dtList > ul > li:nth-child(3)').click()
 
 
-national_data_ds = NationalData(tables=[
+national_data_ds = NationalStatisticsDataSource(tables=[
     NationalDataTable(
         name="CPI_monthly_by_province",
         description="全国各省份每月居民消费价格指数(CPI)。",
@@ -25,7 +25,7 @@ national_data_ds = NationalData(tables=[
     ),
     NationalDataTable(
         name="GDP_value_quarterly_by_province",
-        description="全国各省份每季度地区生产总值(GDP)_累计值(亿元)",
+        description="全国各省份每季度地区生产总值(GDP)_累计值(亿元).表格中数据已经为累计值，如『2024年第二季度』数据为2024年第一季度与第二季度数据的总和。",
         url="https://data.stats.gov.cn/easyquery.htm?cn=E0102"
     ),
     NationalDataTable(
