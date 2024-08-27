@@ -4,15 +4,12 @@
 # @Author   : Perye (Pengyu) LI
 # @FileName : annexx_core.py
 # @Software : PyCharm
-from typing import Sequence, Dict, List, Optional
 
-from langchain_community.vectorstores import FAISS
+from typing import Sequence, Dict, Optional
+
 from langchain_core.retrievers import BaseRetriever
 from logi_langchain.utilities.data_source import BaseDataSource, BaseDataTable
-from pydantic.v1 import BaseModel, validator, root_validator
-
-from annexx.data_source.national_data import national_data_ds
-from annexx.embedding import embed
+from pydantic.v1 import BaseModel, root_validator
 
 
 class Annexx(BaseModel):
