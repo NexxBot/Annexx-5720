@@ -23,7 +23,6 @@ class Annexx(BaseModel):
 
     @root_validator(pre=False)
     def init_ds(cls, values):
-        print(values)
         values['_ds_dict'] = {}
         for ds in values['data_sources']:
             values['_ds_dict'][ds.name] = ds

@@ -11,8 +11,6 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 
 from annexx.core.annexx_core import Annexx
-from annexx.data_source.national_data import national_data_ds
-from annexx.embedding import embed
 from language_model import load_gpt_default
 
 

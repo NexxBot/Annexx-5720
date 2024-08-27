@@ -7,7 +7,7 @@ from unittest import TestCase
 
 from langchain_community.vectorstores import FAISS
 
-from annexx.agent.ds_selection_chain import load_ds_selection_chain
+from annexx.core.agent import load_ds_selection_chain
 from annexx.core.annexx_core import Annexx
 from annexx.data_source.national_data import national_data_ds
 from annexx.embedding import embed

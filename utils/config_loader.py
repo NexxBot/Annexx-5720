@@ -13,7 +13,6 @@ import yaml
 
 def load_config():
     caller_path = str(traceback.extract_stack()[-2]).split(',')[0].lstrip('<FrameSummary file ')
-    print(caller_path)
     module_path = (
         re.match('(.+)/Annexx/', caller_path) or
         re.match('(.+)\\\\Annexx\\\\', caller_path)
