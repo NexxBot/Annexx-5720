@@ -7,6 +7,7 @@
 
 from typing import Sequence, Dict, Optional
 
+from langchain.agents import AgentExecutor
 from langchain_core.retrievers import BaseRetriever
 from logi_langchain.utilities.data_source import BaseDataSource, BaseDataTable
 from pydantic.v1 import BaseModel, root_validator

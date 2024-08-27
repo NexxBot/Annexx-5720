@@ -4,11 +4,11 @@
 # @Author   : Perye (Pengyu) LI
 # @FileName : ds_selection_chain.py
 # @Software : PyCharm
+
 from langchain_community.vectorstores import FAISS
-from langchain_core.output_parsers.openai_functions import JsonOutputFunctionsParser
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder, PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-from langchain_openai import ChatOpenAI
 
 from annexx.core.annexx_core import Annexx
 from annexx.data_source.national_data import national_data_ds
@@ -36,15 +36,11 @@ prompt = PromptTemplate(
     input_variables=['user_question', "data_tables"],
 )
 
-an = Annexx(
-    data_sources=[national_data_ds],
-    retriever=FAISS.from_texts([''], embedding=embed).as_retriever()
-)
-
 
 def load_ds_selection_chain(annexx_instance: Annexx):
     return (
         {'user_question': RunnablePassthrough(), 'data_tables': annexx_instance.retriever} |
         prompt
         | load_gpt_default()
+        | StrOutputParser()
     )
